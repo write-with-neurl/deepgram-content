@@ -13,7 +13,7 @@ from deepgram import (
 # Load environment variables
 load_dotenv()
 
-# Create a `.env` file and add your API Key like so: DG_API_KEY = "YOUR API KEY"
+# Create a `.env` file in the same folder path and add your API Key like so: DG_API_KEY = "YOUR API KEY"
 
 # Next, Import your API_KEY via system variable as best practice.
 # Retrieve API Key from environment variables
