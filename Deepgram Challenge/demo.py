@@ -13,16 +13,19 @@ from deepgram import (
 # Load environment variables
 load_dotenv()
 
-# Optionally, you can import your API_KEY via system variable as best practice.
+# Create a `.env` file and add your API Key like so: DG_API_KEY = "YOUR API KEY"
+
+# Next, Import your API_KEY via system variable as best practice.
 # Retrieve API Key from environment variables
 API_KEY = os.getenv("DG_API_KEY")
 if not API_KEY:
     raise ValueError("Please set the DG_API_KEY environment variable.")
 
+#Initialize the API Key with the Deepgram Client-side helper function
+deepgram = DeepgramClient(API_KEY)
+
 # Path to the audio file and API Key
 AUDIO_FILE = "your_audio_file.m4a"
-API_KEY = 'Your Deepgram API Key'
-deepgram = DeepgramClient(API_KEY)
 
 
 def get_transcript(payload, options):
