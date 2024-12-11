@@ -19,7 +19,9 @@ def main():
         customer_inquiry = utils.get_transcript(payload)
 
         # STEP 3: Send this information to OpenAI to respond.
-        agent_answer = utils.ask_openai(customer_inquiry["results"]["channels"][0]["alternatives"][0]["transcript"])
+        # Extract the transcribed text from the Deepgram response
+        transcribed_text = customer_inquiry["results"]["channels"][0]["alternatives"][0]["transcript"]
+        agent_answer = utils.ask_openai(transcribed_text)
 
         # STEP 4: Print responses that can be used for integration with an app or stored in a customer database for analytics
         print('Topics:', utils.get_topics(customer_inquiry))
